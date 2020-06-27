@@ -97,11 +97,12 @@ EOQs = EOQ(D=D, Co=Co, I=I, Clist=Clist, Rlist=Rlist)
 
 ########### Making DataFrame ############
 Q = EOQs.Q()
+N = int(D)/Q[1]
+t = 360/N
 
-
-L = {'Effiecient Order Quantity':[Q[1]], 'Total Cost':[Q[0]]}
+L = {'Effiecient Order Quantity':[Q[1]], 'Total Cost':[Q[0]], 'Number Of Orders':[N], 'Delay Between Orders':[t]}
 Data = pd.DataFrame(data=L)
 print(Data.to_string(index=False))
-input('PRESS Esc TO EXIT')
+input('Press ANY key TO EXIT')
 # print('Quantity: ' + str(Q))
 
